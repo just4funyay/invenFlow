@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('subbidang_id')
-                  ->constrained()
+                  ->constrained('tbl_subbidang')
                   ->cascadeOnDelete();
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('role',['inputter','monitor']);
             $table->foreignId('subbidang_id')
                   ->nullable()
-                  ->constrained();
+                  ->constrained('tbl_subbidang');
             $table->rememberToken();
             $table->timestamps();
         });
