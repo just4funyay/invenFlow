@@ -29,7 +29,11 @@ Route::middleware(['auth','checkrole:inputter'])->group(function () {
 Route::middleware(['auth','checkrole:monitor'])->group(function () {
     //untuk monitor
     Route::get('/monitor', function(){
-        return view('monitor.home');
+        return view('monitor.dashboard');
+    });
+
+    Route::get('/monitor/kategori', function() {
+        return view('monitor.kategori');
     });
     
 });
