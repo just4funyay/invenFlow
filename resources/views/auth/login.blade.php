@@ -1,48 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
+    <title>Login | InvenFlow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    @vite('resources/css/app.css')
 </head>
-<body>
-    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" class="mx-auto h-10 w-auto" />
-        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
-    </div>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" class="space-y-6">
-        <div>
-            <label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>
-            <div class="mt-2">
-            <input id="email" type="email" name="email" required autocomplete="email" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
-            </div>
-        </div>
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-semibold text-center mb-6">
+            Login InvenFlow
+        </h2>
 
-        <div>
-            <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm/6 font-medium text-gray-100">Password</label>
-            <div class="text-sm">
-                <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Forgot password?</a>
+        @if ($errors->any())
+            <div class="mb-4 rounded-md bg-red-100 px-4 py-2 text-sm text-red-700">
+                {{ $errors->first() }}
             </div>
-            </div>
-            <div class="mt-2">
-            <input id="password" type="password" name="password" required autocomplete="current-password" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
-            </div>
-        </div>
+        @endif
 
-        <div>
-            <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Sign in</button>
-        </div>
+        <form method="POST" action="/login" class="space-y-4">
+            @csrf
+
+            <!-- Email -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">
+                    Email
+                </label>
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2
+                           focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                >
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">
+                    Password
+                </label>
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2
+                           focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                >
+            </div>
+
+            <!-- Role -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">
+                    Role
+                </label>
+                <select
+                    name="role"
+                    required
+                    class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2
+                           focus:border-green-500 focus:ring-2 focus:ring-green-200"
+                >
+                    <option value="">Pilih Role</option>
+                    <option value="inputter">Inputter</option>
+                    <option value="monitoring">Monitoring</option>
+                </select>
+            </div>
+
+            <!-- Button -->
+            <button
+                type="submit"
+                class="w-full rounded-md bg-green-600 py-2 text-white
+                       hover:bg-green-700 transition font-medium"
+            >
+                Login
+            </button>
         </form>
 
-        <p class="mt-10 text-center text-sm/6 text-gray-400">
-        Not a member?
-        <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Start a 14 day free trial</a>
+        <p class="mt-4 text-center text-sm text-gray-600">
+            Belum punya akun?
+            <a href="/register" class="text-blue-600 hover:underline">
+                Register
+            </a>
         </p>
     </div>
-    </div>
+
 </body>
 </html>

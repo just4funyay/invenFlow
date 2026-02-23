@@ -31,6 +31,6 @@ class RegisterController extends Controller
             'role' => $validated['role']
         ]);
  
-         return redirect()->route('login');
+         return redirect('/login');
     }
 }

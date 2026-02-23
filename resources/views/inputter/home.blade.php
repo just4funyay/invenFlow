@@ -8,5 +8,8 @@
 <body>
     <h1>nama disini</h1>
     <h2>ini inputter</h2>
+    <form action="/logout" method="POST">
+    @csrf
+    <button type="submit">Logout</button>
 </body>
 </html>
