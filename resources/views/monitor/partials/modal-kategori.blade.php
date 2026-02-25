@@ -1,5 +1,6 @@
 <div id="modalKategori"
-    class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center">
+    class="fixed inset-0 backdrop-blur-sm bg-opacity-40 hidden items-center justify-center"
+    onclick="closeModal()">
 
     <div class="bg-white w-full max-w-md p-6 rounded-2xl">
 
@@ -20,12 +21,12 @@
 
         <div class="flex justify-end gap-3 mt-6">
             <button onclick="closeModal()"
-                class="px-4 py-2 text-sm text-gray-600">
+                class="px-4 py-2 text-sm text-gray-600 cursor-pointer hover:underline">
                 Batal
             </button>
 
             <button
-                class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 cursor-pointer">
                 Simpan
             </button>
         </div>

@@ -35,5 +35,9 @@ Route::middleware(['auth','checkrole:monitor'])->group(function () {
     Route::get('/monitor/kategori', function() {
         return view('monitor.kategori');
     });
+
+    Route::get('/monitor/laporan', function () {
+        return view('monitor.laporan');
+    });
     
 });
