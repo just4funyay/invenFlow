@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Subbidang extends Model
 {
+    protected $table = 'tbl_subbidang';
     protected $fillable = ['name', 'description'];
 
     public function users():HasMany

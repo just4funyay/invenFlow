@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\SubbidangController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,12 +34,13 @@ Route::middleware(['auth','checkrole:monitor'])->group(function () {
         return view('monitor.dashboard');
     });
 
-    Route::get('/monitor/kategori', function() {
-        return view('monitor.kategori');
-    });
+    Route::post('/monitor/subbidang', [SubbidangController::class, 'create']);
+    Route::get('/monitor/subbidang',[SubbidangController::class,'show']);
+
+    Route::post('/monitor/subbidang/createkategori', [KategoriController::class, 'create']);
 
     Route::get('/monitor/laporan', function () {
         return view('monitor.laporan');
     });
-    
+
 });

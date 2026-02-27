@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
-    protected $fillable = ['name', 'subbidang_id'];
+    protected $table = 'tbl_kategori';
+    protected $fillable = ['name', 'description', 'subbidang_id'];
     public function subbidang():BelongsTo
     {
         return $this->belongsTo(Subbidang::class);

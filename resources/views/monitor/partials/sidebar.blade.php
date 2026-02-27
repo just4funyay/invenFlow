@@ -8,19 +8,15 @@
     </div>
 
     <nav class="flex-1 p-4 space-y-2">
-
         <a href="/monitor" class="block px-4 py-2 rounded-lg {{ request()->is('monitor') ? 'bg-blue-50 text-blue-600 font-medium' : 'hover:bg-gray-100 text-gray-600' }}">
             Dashboard
         </a>
-
-        <a href="/monitor/kategori" class="block px-4 py-2 rounded-lg {{ request()->is('monitor/kategori') ? 'bg-blue-50 text-blue-600 font-medium' : 'hover:bg-gray-100 text-gray-600' }}">
-            Kategori
+        <a href="/monitor/subbidang" class="block px-4 py-2 rounded-lg {{ request()->is('monitor/kategori') ? 'bg-blue-50 text-blue-600 font-medium' : 'hover:bg-gray-100 text-gray-600' }}">
+            Sub-bidang
         </a>
-
         <a href="/monitor/laporan" class="block px-4 py-2 rounded-lg {{ request()->is('monitor/laporan') ? 'bg-blue-50 text-blue-600 font-medium' : 'hover:bg-gray-100 text-gray-600' }}">
             Laporan
         </a>
-
     </nav>
 
 </aside>
