@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Stocklog extends Model
 {
+    protected $table = 'tbl_stocklogs';
     protected $fillable = [
         'item_id',
         'subbidang_id',

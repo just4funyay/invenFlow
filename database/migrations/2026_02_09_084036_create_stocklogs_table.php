@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tbl_stocklogs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('item_id')
-                  ->constrained()
+                  ->constrained('tbl_item')
                   ->cascadeOnDelete();
             $table->foreignId('subbidang_id')
                   ->constrained('tbl_subbidang')

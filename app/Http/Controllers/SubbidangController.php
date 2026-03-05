@@ -23,7 +23,13 @@ class SubbidangController extends Controller
 
     public function show(){
         return view('monitor.subbidang', [
-            'subbidang' => Subbidang::all()
+            'subbidang' => Subbidang::with('categories')->get()
         ]);
     }
+
+    public function subbidangDelete($id)
+{
+    Subbidang::findOrFail($id)->delete();
+    return back()->with('success', 'Subbidang berhasil dihapus.');
+}
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Item extends Model
 {
+    protected $table = 'tbl_item';
     protected $fillable = ['name', 'category_id', 'unit'];
     public function category():BelongsTo
     {
