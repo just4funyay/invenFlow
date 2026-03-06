@@ -1,9 +1,12 @@
 <x-modal id="modalKategori" title="Tambah Kategori">
-    <form>
+    <form method="POST" action="/monitor/subbidang/create-kategori">
+        @csrf
+        <input type="hidden" name="subbidang_id" value="{{ $sb->id }}">
         <div class="space-y-4">
             <input type="text"
                 placeholder="Nama Kategori"
-                class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500">
+                class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+                name="kategori">
         </div>
 
         <div class="flex justify-end gap-3 mt-6">

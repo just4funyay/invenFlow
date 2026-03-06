@@ -62,6 +62,6 @@ document.addEventListener('click', function(e) {
     </div>
 
 </div>
-
+    @stack('scripts')
 </body>
 </html>

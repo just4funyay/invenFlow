@@ -27,9 +27,8 @@ class SubbidangController extends Controller
         ]);
     }
 
-    public function subbidangDelete($id)
-{
-    Subbidang::findOrFail($id)->delete();
-    return back()->with('success', 'Subbidang berhasil dihapus.');
-}
+    public function subbidangDelete($id)    {
+        Subbidang::findOrFail($id)->delete();
+        return back()->with('success', 'Subbidang berhasil dihapus.');
+    }
 }

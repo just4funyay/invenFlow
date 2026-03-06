@@ -33,12 +33,10 @@ Route::middleware(['auth','checkrole:monitor'])->group(function () {
     Route::get('/monitor', function(){
         return view('monitor.dashboard');
     });
-
     Route::post('/monitor/subbidang', [SubbidangController::class, 'create']);
     Route::get('/monitor/subbidang',[SubbidangController::class,'show']);
     Route::delete('/subbidang/{id}', [SubbidangController::class, 'subbidangDelete'])->name('subbidang.destroy');
-    Route::post('/monitor/subbidang/createkategori', [KategoriController::class, 'create']);
-
+    Route::post('/monitor/subbidang/create-kategori', [KategoriController::class, 'create']);
     Route::get('/monitor/laporan', function () {
         return view('monitor.laporan');
     });

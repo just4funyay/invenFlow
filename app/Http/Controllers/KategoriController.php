@@ -10,13 +10,14 @@ class KategoriController extends Controller
     public function create(Request $request) {
         $validated = $request->validate([
             'kategori' => 'required|string|max:255',
+            'subbidang_id' => 'required|exists:tbl_subbidang,id'
         ]); 
-
+        var_dump($validated);
         $category = Category::create([
-            'name' => $validated['nama_kategori']
+            'name' => $validated['kategori'],
+            'subbidang_id' => $validated['subbidang_id']
         ]);
-
-        return redirect('/monitor/subbidang');
+        return back();
     }
     
 }
