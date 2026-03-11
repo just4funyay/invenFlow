@@ -8,7 +8,7 @@
 </head>
 
 <script>
-function openModal(id) {
+function openModal(id, fieldId = null, value = null) {
     const modal = document.getElementById(id);
     const box = modal.querySelector('.modal-box');
 
@@ -20,6 +20,11 @@ function openModal(id) {
         box.classList.remove('opacity-0', 'scale-95');
         box.classList.add('opacity-100', 'scale-100');
     }, 10);
+
+    if (fieldId && value) {
+        const input = document.getElementById(fieldId);
+        if (input) input.value = value;
+    }
 }
 
 function closeModal(id) {

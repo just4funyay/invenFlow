@@ -50,19 +50,21 @@
                     </td>
                     <td class="px-6 py-4 text-gray-500">{{ $sb->description }}</td>
                     <td class="px-6 py-4 text-right">
-                        <button onclick="event.stopPropagation(); openModal('modalKategori', {{ $sb->id }})"
-                            class="text-xs bg-gray-100 px-3 py-1 rounded-lg hover:bg-gray-200 transition">
-                            + Kategori
-                        </button>
-                        <form action="{{ route('subbidang.destroy', $sb->id) }}" method="POST"
-                            onsubmit="return confirm('Yakin ingin menghapus subbidang ini?')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" onclick="event.stopPropagation()"
-                                class="text-xs bg-red-100 text-red-600 px-3 py-1 rounded-lg hover:bg-red-200 transition">
-                                Hapus
+                        <div class="flex flex-col items-end gap-2">    
+                            <button onclick="event.stopPropagation(); openModal('modalKategori', 'subbidang_id',{{ $sb->id }})"
+                                class="text-xs bg-gray-100 px-3 py-1 rounded-lg hover:bg-gray-200 transition cursor-pointer">
+                                + Kategori
                             </button>
-                        </form>
+                            <form action="{{ route('subbidang.destroy', $sb->id) }}" method="POST"
+                                onsubmit="return confirm('Yakin ingin menghapus subbidang ini?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="event.stopPropagation()"
+                                    class="text-xs bg-red-100 text-red-600 px-3 py-1 rounded-lg hover:bg-red-200 transition cursor-pointer">
+                                    Hapus
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
 
@@ -72,8 +74,13 @@
                         @if($sb->categories->count() > 0)
                             <div class="flex flex-wrap gap-2 py-1">
                                 @foreach($sb->categories as $kategori)
-                                    <span class="bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">
+                                    <span class="inline-flex items-center gap-1 bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full">
                                         {{ $kategori->name }}
+                                        <button 
+                                         onclick="event.stopPropagation(); openModal('modalDeleteKategori', 'kategori_id', {{ $kategori->id }})"
+                                         class="ml-1 text-gray-500 hover:text-red-500 leading-none cursor-pointer">
+                                            &times;
+                                        </button>
                                     </span>
                                 @endforeach
                             </div>
@@ -99,6 +106,7 @@
 
 @include('monitor.partials.modal-subbidang')
 @include('monitor.partials.modal-kategori')
+@include('monitor.partials.modal-delete-kategori')
 
 @endsection
 

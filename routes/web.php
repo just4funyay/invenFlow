@@ -37,6 +37,7 @@ Route::middleware(['auth','checkrole:monitor'])->group(function () {
     Route::get('/monitor/subbidang',[SubbidangController::class,'show']);
     Route::delete('/subbidang/{id}', [SubbidangController::class, 'subbidangDelete'])->name('subbidang.destroy');
     Route::post('/monitor/subbidang/create-kategori', [KategoriController::class, 'create']);
+    Route::delete('/subbidang/delete-kategori/{id}', [KategoriController::class, 'kategoriDelete'])->name('kategori.destroy');
     Route::get('/monitor/laporan', function () {
         return view('monitor.laporan');
     });

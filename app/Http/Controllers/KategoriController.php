@@ -19,5 +19,10 @@ class KategoriController extends Controller
         ]);
         return back();
     }
+
+    public function kategoriDelete($id)    {
+        Category::findOrFail($id)->delete();
+        return back()->with('success', 'Kategori berhasil dihapus.');
+    }
     
 }
