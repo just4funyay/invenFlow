@@ -12,7 +12,7 @@
             Manajemen Subbidang
         </h3>
         <button onclick="openModal('modalSubbidang')"
-            class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition cursor-pointer">
             + Tambah Subbidang
         </button>
     </div>
